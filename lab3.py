@@ -53,15 +53,15 @@ with open("test.bmp","w+b") as fail:
 
 
     for add_y in range(310):#движение по у
-        
+        x_paint = round(min(min_x)) - 2
         for add_x in range(270):#движение по х
             if (x_paint, y_paint) in all_values:#если точка есть в списке точек принадлежащих линии 
                 fail.write(b'\x00\x00\x00\xFF')#то пиксель этой точки черный
             else:
                 fail.write(b'\xFF\xFF\xFF\xFF')#иначе белый
 
-            x_paint = round(x1 + 0.1, 1)
+            x_paint = round(x_paint + 0.1, 1)
 
-        y_paint = round(y1 + 0.1,1)
+        y_paint = round(y_paint + 0.1,1)
 
 fail.close()
